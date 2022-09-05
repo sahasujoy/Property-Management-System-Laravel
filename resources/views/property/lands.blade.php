@@ -25,8 +25,8 @@ data-bs-backdrop="static" aria-hidden="true">
       <h5 class="modal-title" id="exampleModalLabel">Add New Land</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <form action="{{ route('land.store') }}" method="POST" id="add_land_form" enctype="multipart/form-data">
-      @csrf
+    <form action="#" method="POST" id="add_land_form" enctype="multipart/form-data">
+      {{-- @csrf --}}
       <div class="modal-body p-4 bg-light">
         <div class="my-2">
             <label for="mname">Mouza Name</label>
@@ -138,15 +138,21 @@ if (toastTrigger) {
   })
 }
 </script> --}}
+@endsection
 
-<script language="javascript" type="text/javascript">
-    fetchAllLands();
-    //fetch all engineers
+@section('scripts')
+<script type="text/javascript">
+
+$(document).ready(function () {
     $.ajaxSetup({
         headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+
+    fetchAllLands();
+    //fetch all engineers
     function fetchAllLands()
     {
         $.ajax({
@@ -164,14 +170,20 @@ if (toastTrigger) {
         });
     }
 
+    // $.ajaxSetup({
+    //     headers: {
+    //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+
     //add engineer ajax request
-    $("#add_land_form").submit(function(e){
+    $(document).on('submit', '#add_land_form', function (e) {
             e.preventDefault();
-            const fd = new FormData(this[0]);
+            const fd = new FormData(this);
             $("#add_land_btn").text('Adding...');
             $.ajax({
-                url: '{{ route('land.store') }}',
                 method: 'post',
+                url: '{{ route('land.store') }}',
                 data: fd,
                 cache: false,
                 processData: false,
@@ -183,7 +195,7 @@ if (toastTrigger) {
                     {
                         Swal.fire(
                             'Added!',
-                            'Engineer Added Successfully!',
+                            'Land Added Successfully!',
                             'success'
                         );
                         fetchAllLands();
@@ -194,5 +206,6 @@ if (toastTrigger) {
                 }
             });
         });
+    });
     </script>
-@endsection
+    @endsection

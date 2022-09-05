@@ -10,6 +10,7 @@ class Land extends Model
     use HasFactory;
 
     protected $table = 'lands';
+    
     protected $fillable = [
         'mouza_name',
         'size',
@@ -24,4 +25,9 @@ class Land extends Model
         'address',
         'image',
     ];
+
+    public function buildings()
+    {
+        return $this->hasMany(Bulding::class, 'land_id', 'id');
+    }
 }

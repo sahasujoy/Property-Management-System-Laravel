@@ -1,8 +1,9 @@
 <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
     <div class="sidebar-brand d-none d-md-flex">
-      <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+      {{-- <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
         <use xlink:href="{{ asset('assets/brand/coreui.svg#full') }}"></use>
-      </svg>
+      </svg> --}}
+      <img src="{{ asset('images/excelitai.png') }}"  height="46" alt="">
       <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
         <use xlink:href="{{ asset('assets/brand/coreui.svg#signet') }}"></use>
       </svg>
@@ -28,8 +29,8 @@
           </svg> Property </a>
         <ul class="nav-group-items">
           <li class="nav-item"><a class="nav-link" href="{{ route('land.view') }}"><span class="nav-icon"></span> Lands</a></li>
-          <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span class="nav-icon"></span> Buildings</a></li>
-          <li class="nav-item"><a class="nav-link" href="base/cards.html"><span class="nav-icon"></span> Flats</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('building.view') }}"><span class="nav-icon"></span> Buildings</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('flat.view') }}"><span class="nav-icon"></span> Flats</a></li>
           {{-- <li class="nav-item"><a class="nav-link" href="base/carousel.html"><span class="nav-icon"></span> Carousel</a></li>
           <li class="nav-item"><a class="nav-link" href="base/collapse.html"><span class="nav-icon"></span> Collapse</a></li>
           <li class="nav-item"><a class="nav-link" href="base/list-group.html"><span class="nav-icon"></span> List group</a></li>
@@ -44,7 +45,56 @@
           <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li> --}}
         </ul>
       </li>
-      <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+      <li class="nav-item"><a class="nav-link" href="{{ route('customer.view') }}">
+        <svg class="nav-icon">
+          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-chart-pie') }}"></use>
+        </svg> Customers</a></li>
+    {{-- <li class="nav-item"><a class="nav-link" href="{{ route('registration.view') }}">
+        <svg class="nav-icon">
+            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-chart-pie') }}"></use>
+        </svg> Flat Registration</a>
+    </li> --}}
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <svg class="nav-icon">
+          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+        </svg> Registrations </a>
+      <ul class="nav-group-items">
+        <li class="nav-item"><a class="nav-link" href="{{ route('registration.view') }}"><span class="nav-icon"></span> Flat Registrations</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('registration.status.view') }}"><span class="nav-icon"></span> Registration Statuses</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <svg class="nav-icon">
+          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+        </svg> Client Price Information</a>
+      <ul class="nav-group-items">
+        <li class="nav-item"><a class="nav-link" href="{{ route('price.reg.view') }}"><span class="nav-icon"></span> Regisration Costs</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('price.flat.view') }}"><span class="nav-icon"></span> Registered Flat Prices</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <svg class="nav-icon">
+          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+        </svg> Client Payment List</a>
+      <ul class="nav-group-items">
+        <li class="nav-item"><a class="nav-link" href="{{ route('payment.reg.view') }}"><span class="nav-icon"></span> Regisration Payment</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('payment.flat.view') }}"><span class="nav-icon"></span> Flat Price Payment</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <svg class="nav-icon">
+          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+        </svg> Client Payment & Due</a>
+      <ul class="nav-group-items">
+        <li class="nav-item"><a class="nav-link" href="{{ route('due.reg.view') }}"><span class="nav-icon"></span> Regisration Payment & Due</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('due.flat.view') }}"><span class="nav-icon"></span> Flat Payment & Due</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a class="nav-link" href="{{ route('bnf.view') }}">
+        <svg class="nav-icon">
+          <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-chart-pie') }}"></use>
+        </svg> Building & Flat Details</a></li>
+      {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
           <svg class="nav-icon">
             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-cursor') }}"></use>
           </svg> Buttons</a>
@@ -97,7 +147,7 @@
       <li class="nav-item"><a class="nav-link" href="widgets.html">
           <svg class="nav-icon">
             <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-calculator') }}"></use>
-          </svg> Widgets<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+          </svg> Widgets<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li> --}}
       <li class="nav-divider"></li>
       <li class="nav-title">Extras</li>
       <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
